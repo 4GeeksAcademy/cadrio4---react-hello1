@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
+import CDMXImage from "../../img/CDMX.jpg";
 
 
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="trafic-light">
-			<div className="light"></div>
-			<div className="light"></div>
-			<div className="light"></div>
-            
+	const [selectedColor, setSelectedColor] = useState("red");
 
+	console.log(selectedColor)
+
+	return (
 		
-		</div>
+
+
+			<div className="traffic-light d-flex flex-column align-items-center">
+				<div className="stick"></div>
+
+				<div className="square d-flex flex-column justify-content-center align-items-center">
+					<div onClick={() => { setSelectedColor("stop") }} className={"light red m-3 " + (selectedColor === "stop" ? " red-shadow" : "")}></div>
+					<div onClick={() => { setSelectedColor("crosswithcare") }} className={"light orange m-3 " + (selectedColor === "crosswithcare" ? " orange-shadow" : "")}></div>
+					<div onClick={() => { setSelectedColor("youcango") }} className={"light green m-3 " + (selectedColor === "youcango" ? " green-shadow" : "")}></div>
+
+
+
+				</div>
+			</div>
+		
 	);
 };
 
